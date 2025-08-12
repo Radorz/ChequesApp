@@ -19,6 +19,9 @@ namespace Domain.Entities
         public int ProveedorId { get; set; }
         public Proveedor? Proveedor { get; set; }
 
+        [Required] public int ConceptoPagoId { get; set; }          // <-- NUEVO (requerido)
+        public ConceptoPago? ConceptoPago { get; set; } = null!;
+
         [Required]
         public decimal Monto { get; set; }
 

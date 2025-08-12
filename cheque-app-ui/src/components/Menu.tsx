@@ -1,6 +1,6 @@
 import { NavLink, useNavigate,useLocation  } from 'react-router-dom';
 import { FiUsers, FiCreditCard, FiLogOut, FiChevronDown, FiList, FiCheckSquare, FiDatabase, FiEye, FiBook } from 'react-icons/fi';
-import  { useEffect, useState } from 'react';
+import  { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
 
 export default function Menu() {
@@ -11,6 +11,7 @@ export default function Menu() {
   };
   const { pathname } = useLocation();
   const [openCheques, setOpenCheques] = useState(false);
+  const chequesGroupRef = useRef<HTMLDivElement>(null);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `flex items-center p-2 rounded ${isActive ? 'bg-blue-200' : 'hover:bg-gray-100'}`;
@@ -25,15 +26,43 @@ const active =
     if (pathname.startsWith('/cheques')) setOpenCheques(true);
   }, [pathname]);
   
+  const handleBlurGroup = (e: React.FocusEvent<HTMLDivElement>) => {
+    // Si el nuevo foco (relatedTarget) NO está dentro del grupo -> cerrar
+    const next = e.relatedTarget as Node | null;
+    if (!next || !e.currentTarget.contains(next)) {
+      setOpenCheques(false);
+    }
+  };
+
+  const handleKeyDownGroup = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape') setOpenCheques(false);
+  };
+
   return (
     <nav className="w-64 bg-white shadow p-4 print:hidden">
-    <Logo className="mb-6" />
-      <ul className="space-y-2">
+      <NavLink to="/inicio" >
+          <Logo className="mb-6" />
+      </NavLink>
+
+      <ul className="space-y-2" >
  {/* ---- Padre: Cheques ---- */}
+      <div
+        ref={chequesGroupRef}
+        onBlur={handleBlurGroup}
+        onKeyDown={handleKeyDownGroup}
+        // para que el contenedor pueda recibir blur via bubbling (los hijos son focusables)
+        role="group"
+        aria-label="Menú Cheques"
+      >
+
       <button
         type="button"
-        onClick={() => setOpenCheques(v => !v)}
-        className={`${baseItem} ${pathname.startsWith('/cheques') ? active : ''}`}
+       onClick={() => setOpenCheques(v => !v)}
+          aria-expanded={openCheques}
+          aria-controls="submenu-cheques"
+          className={`flex items-center gap-2 w-full text-left px-2 py-2 rounded hover:bg-gray-100 transition ${
+            pathname.startsWith('/cheques') ? 'bg-blue-100 text-blue-800' : ''
+          }`}
       >
         <FiCreditCard />
         <span className="flex-1 text-left">Cheques</span>
@@ -97,6 +126,7 @@ const active =
             <FiLogOut className="mr-2" /> Salir
           </button>
         </li>
+        </div>
       </ul>
     </nav>
   );

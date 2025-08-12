@@ -40,8 +40,8 @@ export default function AsientoDetalleModal({
         {/* Resumen en forma de formulario */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
           <div><div className="text-xs text-slate-500">Periodo</div><div className="font-medium">{periodo}</div></div>
-          <div><div className="text-xs text-slate-500">DebId</div><div>{data.debId}</div></div>
-          <div><div className="text-xs text-slate-500">CreId</div><div>{data.creId}</div></div>
+          <div><div className="text-xs text-slate-500">Deb#</div><div>{data.debId}</div></div>
+          <div><div className="text-xs text-slate-500">Cre#</div><div>{data.creId}</div></div>
           <div><div className="text-xs text-slate-500">Monto total</div><div className="font-semibold">{money(data.montoTotal)}</div></div>
           <div><div className="text-xs text-slate-500"># Cheques</div><div>{data.cantidadCheques}</div></div>
           <div><div className="text-xs text-slate-500"># Proveedores</div><div>{data.proveedoresUnicos}</div></div>
@@ -74,7 +74,7 @@ export default function AsientoDetalleModal({
                               numeroCheque={ch.numeroCheque ?? '—'}
                               beneficiario={ch.proveedorNombre ?? '—'}
                               monto={ch.monto}
-                              memo={`Pago solicitud #${ch.numeroSolicitud}`}
+                              memo={ch.conceptoPago ?? `Pago solicitud #${ch.numeroSolicitud}`}
                               cuentaCorriente="123-456789-0"
                             />
                   </div>

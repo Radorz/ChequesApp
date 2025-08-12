@@ -27,7 +27,7 @@ export default function ChequeCard({
   const letras = numeroALetras(monto, 'PESOS DOMINICANOS');
 
   return (
-    <div className="relative w-[1050px] max-w-full aspect-[3/1] bg-white border rounded-xl shadow print:shadow-none overflow-hidden">
+    <div className="relative w-[1050px] max-w-full  bg-white border rounded-xl shadow print:shadow-none overflow-hidden">
       {/* Marca de agua leve */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] [background:repeating-linear-gradient(45deg,#000_0_2px,transparent_2px_10px)]" />
 

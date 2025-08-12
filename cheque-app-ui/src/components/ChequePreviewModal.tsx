@@ -55,7 +55,7 @@ export default function ChequePreviewModal({ id, onClose }: Props) {
           numeroCheque={data.numeroCheque ?? '—'}
           beneficiario={data.proveedor?.nombre ?? '—'}
           monto={data.monto}
-          memo={`Pago solicitud #${data.numeroSolicitud}`}
+          memo={data.conceptoPago?.descripcion ??`Pago solicitud #${data.numeroSolicitud}`}
           cuentaCorriente="123-456789-0"
         />
       </div>

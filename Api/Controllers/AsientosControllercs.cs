@@ -71,7 +71,7 @@ public class AsientosController : ControllerBase
                 s.NumeroSolicitud, s.NumeroCheque!,
                 s.ProveedorId, s.Proveedor.Nombre, s.Proveedor.CedulaRnc,
                 s.Monto, s.FechaRegistro,
-                s.CuentaContableProveedor, s.CuentaContableBanco
+                s.CuentaContableProveedor, s.CuentaContableBanco, s.ConceptoPago.Descripcion
             ))
             .ToListAsync();
 

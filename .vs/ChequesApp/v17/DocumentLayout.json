@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\solicitudescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\solicitudescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\asientoscontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\asientoscontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\dtos\\chequesdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\dtos\\chequesdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\domain\\entities\\solicitudcheque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\solicitudcheque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\domain\\entities\\conceptopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\conceptopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\domain\\data\\chequeappcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|solutionrelative:domain\\data\\chequeappcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,28 +51,8 @@
       "RelativeMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|solutionrelative:domain\\services\\contabapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\asientoscontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\asientoscontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\dtos\\chequesdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\dtos\\chequesdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\domain\\entities\\solicitudcheque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\solicitudcheque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\solicitudescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\solicitudescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\domain\\data\\chequeappcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|solutionrelative:domain\\data\\chequeappcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -51,16 +63,8 @@
       "RelativeMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\domain\\entities\\conceptopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05005CE2-9034-40E2-8E87-5CDE6E4EE1D1}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\conceptopago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\conceptospagocontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\conceptospagocontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|solutionrelative:api\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{98EB41E9-2794-4748-A56B-854A2D844B5C}|Api\\Api.csproj|c:\\users\\luisin\\source\\repos\\chequesapp\\api\\api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
@@ -78,31 +82,46 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "Api\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowFYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T02:45:58.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AsientosControllercs.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\AsientosControllercs.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\AsientosControllercs.cs",
               "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\AsientosControllercs.cs",
               "RelativeToolTip": "Api\\Controllers\\AsientosControllercs.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAIwEAAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T06:18:43.84Z"
+              "WhenOpened": "2025-08-11T06:18:43.84Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "ChequesDtos.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Dtos\\ChequesDtos.cs",
               "RelativeDocumentMoniker": "Api\\Dtos\\ChequesDtos.cs",
               "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Dtos\\ChequesDtos.cs",
               "RelativeToolTip": "Api\\Dtos\\ChequesDtos.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAgwB8AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAApwCkAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T02:57:26.279Z"
+              "WhenOpened": "2025-08-11T02:57:26.279Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "Api.csproj",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Api.csproj",
               "RelativeDocumentMoniker": "Api\\Api.csproj",
@@ -110,12 +129,11 @@
               "RelativeToolTip": "Api\\Api.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-11T02:56:38.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T02:56:38.316Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "ContabApiService.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Services\\ContabApiService.cs",
               "RelativeDocumentMoniker": "Domain\\Services\\ContabApiService.cs",
@@ -123,12 +141,11 @@
               "RelativeToolTip": "Domain\\Services\\ContabApiService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAiwCMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T23:03:30.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-09T23:03:30.273Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Domain.csproj",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Domain.csproj",
               "RelativeDocumentMoniker": "Domain\\Domain.csproj",
@@ -140,31 +157,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "SolicitudesController.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\SolicitudesController.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\SolicitudesController.cs",
               "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\SolicitudesController.cs",
               "RelativeToolTip": "Api\\Controllers\\SolicitudesController.cs",
-              "ViewState": "AgIAAL0AAAAAAAAAAAAIwNEAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAADwvzUAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T19:21:59.992Z"
+              "WhenOpened": "2025-07-08T19:21:59.992Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "SolicitudCheque.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Entities\\SolicitudCheque.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\SolicitudCheque.cs",
               "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Entities\\SolicitudCheque.cs",
               "RelativeToolTip": "Domain\\Entities\\SolicitudCheque.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAmwCYAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T19:19:07.201Z"
+              "WhenOpened": "2025-07-08T19:19:07.201Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Api.http",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Api.http",
               "RelativeDocumentMoniker": "Api\\Api.http",
@@ -176,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\AuthController.cs",
@@ -184,11 +203,12 @@
               "RelativeToolTip": "Api\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T02:03:49.482Z"
+              "WhenOpened": "2025-07-07T02:03:49.482Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\appsettings.json",
               "RelativeDocumentMoniker": "Api\\appsettings.json",
@@ -196,12 +216,11 @@
               "RelativeToolTip": "Api\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-07T01:58:23.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-07T01:58:23.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "ConceptosPagoControllercs.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\ConceptosPagoControllercs.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\ConceptosPagoControllercs.cs",
@@ -213,19 +232,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 0,
               "Title": "ProveedoresController.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\ProveedoresController.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\ProveedoresController.cs",
-              "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\ProveedoresController.cs",
-              "RelativeToolTip": "Api\\Controllers\\ProveedoresController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBcAAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Controllers\\ProveedoresController.cs*",
+              "RelativeToolTip": "Api\\Controllers\\ProveedoresController.cs*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAxwD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T01:55:52.251Z"
+              "WhenOpened": "2025-07-07T01:55:52.251Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Api\\Program.cs",
               "RelativeDocumentMoniker": "Api\\Program.cs",
@@ -238,31 +258,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
               "Title": "ChequeAppContext.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Data\\ChequeAppContext.cs",
               "RelativeDocumentMoniker": "Domain\\Data\\ChequeAppContext.cs",
               "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Data\\ChequeAppContext.cs",
               "RelativeToolTip": "Domain\\Data\\ChequeAppContext.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAkwDgAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswDgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T01:42:14.477Z"
+              "WhenOpened": "2025-07-07T01:42:14.477Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
               "Title": "ConceptoPago.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Entities\\ConceptoPago.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\ConceptoPago.cs",
               "ToolTip": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Entities\\ConceptoPago.cs",
               "RelativeToolTip": "Domain\\Entities\\ConceptoPago.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T01:41:40.392Z"
+              "WhenOpened": "2025-07-07T01:41:40.392Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Proveedor.cs",
               "DocumentMoniker": "C:\\Users\\Luisin\\source\\repos\\ChequesApp\\Domain\\Entities\\Proveedor.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Proveedor.cs",

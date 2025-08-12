@@ -49,8 +49,11 @@ export default function ProveedorModal({ item, show, onClose, onSave }: Proveedo
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Validación de cédula/RNC
-    if (!validateCedula(form.cedulaRnc || '')) {
+    if (!/^\d{11}$/.test(form.cedulaRnc || '')) {
       toast.error('Cédula/RNC inválida. Debe tener 11 dígitos.');
+    return false;}
+    if (!validateCedula(form.cedulaRnc || '')) {
+      toast.error('Cédula/RNC inválida.');
       return;
     }
 

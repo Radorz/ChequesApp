@@ -30,8 +30,10 @@ export default function Asientos() {
 
   const total = useMemo(() => rows.reduce((a,b)=>a+b.montoTotal,0), [rows]);
 
-  const formatPeriodo = (a:number,m:number) =>
-    new Date(a, m-1, 1).toLocaleDateString('es-DO', { year:'numeric', month:'long' });
+  const formatPeriodo = (a:number, m:number) => {
+    const str = new Date(a, m-1, 1).toLocaleDateString('es-DO', { year:'numeric', month:'long' });
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   return (
     <>
@@ -45,9 +47,9 @@ export default function Asientos() {
                className="border rounded px-3 py-2 focus:outline-none focus:ring" />
         <input type="date" value={filters.hasta} onChange={e=>setFilters(f=>({...f, hasta:e.target.value}))}
                className="border rounded px-3 py-2 focus:outline-none focus:ring" />
-        <input type="number" placeholder="DebId" value={filters.debId} onChange={e=>setFilters(f=>({...f, debId:e.target.value}))}
+        <input type="number" placeholder="DB #" value={filters.debId} onChange={e=>setFilters(f=>({...f, debId:e.target.value}))}
                className="border rounded px-3 py-2 focus:outline-none focus:ring" />
-        <input type="number" placeholder="CreId" value={filters.creId} onChange={e=>setFilters(f=>({...f, creId:e.target.value}))}
+        <input type="number" placeholder="CR #" value={filters.creId} onChange={e=>setFilters(f=>({...f, creId:e.target.value}))}
                className="border rounded px-3 py-2 focus:outline-none focus:ring" />
         <button onClick={buscar} className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-500 active:bg-indigo-700 transition flex items-center gap-2">
           <FiSearch/> Buscar
@@ -62,8 +64,8 @@ export default function Asientos() {
         <thead className="bg-gray-100">
           <tr>
             <th className="px-4 py-2 text-left">Periodo</th>
-            <th className="px-4 py-2 text-left">DebId</th>
-            <th className="px-4 py-2 text-left">CreId</th>
+            <th className="px-4 py-2 text-left">DB #</th>
+            <th className="px-4 py-2 text-left">CR #</th>
             <th className="px-4 py-2 text-right">Monto Asiento</th>
             <th className="px-4 py-2 text-center"># Cheques</th>
             <th className="px-4 py-2 text-center"># Proveedores</th>

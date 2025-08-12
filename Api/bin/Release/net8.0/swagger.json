@@ -233,6 +233,97 @@
         }
       }
     },
+    "/api/Dashboard/overview": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DashboardOverviewDto"
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/cheques-trend": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "months",
+            "type": "integer",
+            "format": "int32",
+            "default": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ChequesTrendPoint"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/top-proveedores": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "months",
+            "type": "integer",
+            "format": "int32",
+            "default": 6
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "type": "integer",
+            "format": "int32",
+            "default": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TopProveedorDto"
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Proveedores": {
       "get": {
         "tags": [
@@ -931,6 +1022,28 @@
       },
       "additionalProperties": false
     },
+    "ChequesTrendPoint": {
+      "type": "object",
+      "properties": {
+        "anio": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "monto": {
+          "format": "double",
+          "type": "number"
+        },
+        "cantidad": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
     "ConceptoPago": {
       "type": "object",
       "properties": {
@@ -963,6 +1076,44 @@
         "fechaAsiento": {
           "format": "date-time",
           "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DashboardOverviewDto": {
+      "type": "object",
+      "properties": {
+        "proveedoresActivos": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proveedoresInactivos": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "balanceTotalProveedores": {
+          "format": "double",
+          "type": "number"
+        },
+        "solicitudesPendientes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "montoPendiente": {
+          "format": "double",
+          "type": "number"
+        },
+        "chequesGeneradosMes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "montoChequesMes": {
+          "format": "double",
+          "type": "number"
+        },
+        "conceptos": {
+          "format": "int32",
+          "type": "integer"
         }
       },
       "additionalProperties": false
@@ -1080,6 +1231,27 @@
           "type": "integer"
         },
         "entradaContableCreId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TopProveedorDto": {
+      "type": "object",
+      "properties": {
+        "proveedorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "montoTotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "cheques": {
           "format": "int32",
           "type": "integer"
         }

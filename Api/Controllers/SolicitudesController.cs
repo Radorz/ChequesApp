@@ -36,6 +36,7 @@ namespace ChequeApp.Api.Controllers
         public async Task<ActionResult<IEnumerable<SolicitudCheque>>> GetAll()
             => await _ctx.Solicitudes
                          .Include(s => s.Proveedor)
+                         .Include(p=> p.ConceptoPago)
                          .ToListAsync();
 
         // GET: api/solicitudes/5
@@ -44,6 +45,7 @@ namespace ChequeApp.Api.Controllers
         {
             var s = await _ctx.Solicitudes
                               .Include(x => x.Proveedor)
+                              .Include(p => p.ConceptoPago)
                               .FirstOrDefaultAsync(x => x.NumeroSolicitud == id);
             if (s == null) return NotFound();
             return s;
@@ -64,6 +66,10 @@ namespace ChequeApp.Api.Controllers
 
             if (s.Monto > prov.Balance)
                 return BadRequest($"Monto ({s.Monto}) excede el balance del proveedor ({prov.Balance}).");
+
+            var concepto = await _ctx.ConceptosPago
+                .FirstOrDefaultAsync(c => c.Identificador == s.ConceptoPagoId && c.Estado);
+            if (concepto is null) return BadRequest("Concepto inválido o inactivo.");
 
             if (string.IsNullOrWhiteSpace(s.Estado)) s.Estado = "Pendiente";
 
@@ -97,6 +103,11 @@ namespace ChequeApp.Api.Controllers
                 if (s.Monto > prov.Balance)
                     return BadRequest($"Monto ({s.Monto}) excede el balance del proveedor ({prov.Balance}).");
             }
+
+            if (s.ConceptoPagoId <= 0) return BadRequest("Debe seleccionar un concepto de pago.");
+            var concepto = await _ctx.ConceptosPago
+                .FirstOrDefaultAsync(c => c.Identificador == s.ConceptoPagoId && c.Estado);
+            if (concepto is null) return BadRequest("Concepto inválido o inactivo.");
 
             // Actualiza campos permitidos
             original.Monto = s.Monto;

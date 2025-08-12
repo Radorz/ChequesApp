@@ -39,7 +39,7 @@
         int NumeroSolicitud, string NumeroCheque,
         int ProveedorId, string ProveedorNombre, string ProveedorRnc,
         decimal Monto, DateTime FechaRegistro,
-        string CuentaContableProveedor, string CuentaContableBanco
+        string CuentaContableProveedor, string CuentaContableBanco, string ConceptoPago
     );
 
     public record AsientoDetalleDto(
@@ -47,4 +47,19 @@
         decimal MontoTotal, int CantidadCheques, int ProveedoresUnicos,
         IEnumerable<AsientoDetalleChequeDto> Cheques
     );
+    public record DashboardOverviewDto(
+       int ProveedoresActivos,
+       int ProveedoresInactivos,
+       decimal BalanceTotalProveedores,
+       int SolicitudesPendientes,
+       decimal MontoPendiente,
+       int ChequesGeneradosMes,
+       decimal MontoChequesMes,
+       int Conceptos
+   );
+
+    public record ChequesTrendPoint(int Anio, int Mes, decimal Monto, int Cantidad);
+    public record TopProveedorDto(int ProveedorId, string Nombre, decimal MontoTotal, int Cheques);
 }
+
+

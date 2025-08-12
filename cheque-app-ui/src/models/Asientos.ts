@@ -9,7 +9,7 @@ export type AsientoDetalleCheque = {
   numeroSolicitud: number; numeroCheque: string;
   proveedorId: number; proveedorNombre: string; proveedorRnc: string;
   monto: number; fechaRegistro: string;
-  cuentaContableProveedor: string; cuentaContableBanco: string;
+  cuentaContableProveedor: string; cuentaContableBanco: string; conceptoPago: string;
 };
 
 export type AsientoDetalle = {

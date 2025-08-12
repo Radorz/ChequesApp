@@ -7,13 +7,14 @@ interface Props {
   show: boolean;
   item?: SolicitudCheque;
   proveedores: { identificador: number; nombre: string, cuentaContable:string }[];
+  conceptos: { identificador:number; descripcion:string; estado:boolean }[];
   onSave: (data: SolicitudCheque) => void;
   onClose: () => void;
 }
 
 
 export default function SolicitudModal({
-  show, item, proveedores, onSave, onClose
+  show, item, proveedores, conceptos, onSave, onClose
 }: Props) {
 
 const toDateInput = (v?: string | Date) => {
@@ -26,6 +27,7 @@ const toDateInput = (v?: string | Date) => {
 
 const [form, setForm] = useState<Partial<SolicitudCheque>>({
   proveedorId: proveedores[0]?.identificador || 0,
+  conceptoPagoId: conceptos[0]?.identificador ?? 0,   // <-- valor por defecto
   monto: 0,
   fechaRegistro: toDateInput(new Date()), // <-- hoy en YYYY-MM-DD
   estado: 'Pendiente',
@@ -39,6 +41,8 @@ useEffect(() => {
     setForm({
       ...item,
       fechaRegistro: toDateInput(item.fechaRegistro), // <-- clave
+      conceptoPagoId: item.conceptoPagoId ?? item.conceptoPago?.id ?? 0
+
     });
   }
 }, [item]);
@@ -56,15 +60,18 @@ useEffect(() => {
   }, [form.proveedorId, proveedores]);
 
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev,
-      [name]:
-        name === 'monto'
-          ? parseFloat(value)
-        : value
-    }));
-  };
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const { name, value } = e.target;
+  setForm(prev => ({
+    ...prev,
+    [name]:
+      name === 'monto' ? parseFloat(value)
+      : name === 'proveedorId' || name === 'conceptoPagoId' ? parseInt(value, 10)
+      : value
+  }));
+};
+
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -73,8 +80,17 @@ useEffect(() => {
       toast.error('Selecciona un proveedor');
       return;
     }
+    if (!form.conceptoPagoId || form.conceptoPagoId <= 0) {
+    toast.error('Debes seleccionar un concepto de pago.');
+    return;
+  }
     if (!form.monto || form.monto <= 0) {
       toast.error('El monto debe ser > 0');
+      return;
+    }
+
+     if (!form.cuentaContableBanco || form.cuentaContableBanco == '') {
+      toast.error('Cuenta de banco requerida');
       return;
     }
     onSave(form as SolicitudCheque);
@@ -107,6 +123,21 @@ useEffect(() => {
             ))}
           </select>
         </div>
+        <div className="mb-3">
+          <label className="block text-sm mb-1">Concepto de pago</label>
+<select
+  name="conceptoPagoId"
+  value={form.conceptoPagoId ?? 0}
+  onChange={handleChange}
+  className="w-full border rounded px-3 py-2 mb-3 focus:outline-none focus:ring"
+  required
+>
+  <option value={0} disabled>-- Selecciona --</option>
+  {conceptos.map(c => (
+    <option key={c.identificador} value={c.identificador}>{c.descripcion}</option>
+  ))}
+</select>
+        </div>
 
         {/* Monto */}
         <div className="mb-3">
@@ -121,7 +152,7 @@ useEffect(() => {
           />
         </div>
 
-        {/* Fecha Registro */}
+        {/* Fecha Registro
         <div className="mb-3">
           <label className="block text-sm mb-1">Fecha Registro</label>
           <input
@@ -131,10 +162,10 @@ useEffect(() => {
             onChange={handleChange}
             className="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
           />
-        </div>
+        </div> */}
 
         {/* Estado */}
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <label className="block text-sm mb-1">Estado</label>
           <select
             name="estado"
@@ -145,7 +176,7 @@ useEffect(() => {
             <option value="Pendiente">Pendiente</option>
             <option value="Anulada">Anulada</option>
           </select>
-        </div>
+        </div> */}
 
         {/* Cuentas contables */}
         <div className="mb-3">

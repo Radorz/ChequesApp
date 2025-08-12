@@ -55,6 +55,12 @@ namespace Domain.Data
                 e.HasKey(x => x.NumeroSolicitud);
                 e.Property(x => x.NumeroSolicitud).ValueGeneratedOnAdd();
             });
-        }
+
+            modelBuilder.Entity<SolicitudCheque>()
+            .HasOne(s => s.ConceptoPago)
+            .WithMany()
+            .HasForeignKey(s => s.ConceptoPagoId)
+            .OnDelete(DeleteBehavior.Restrict);
+                }
     }
 }

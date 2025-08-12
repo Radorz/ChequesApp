@@ -12,6 +12,7 @@ import ContabilizarCheques from './pages/ContabilizarCheques';
 import ChequeDetalle from './pages/ChequeDetalle';
 import ChequesGenerados from './pages/ChequesGenerados';
 import Asientos from './pages/Asientos';
+import Inicio from './pages/Inicio';
 
 export default function App() {
   
@@ -30,7 +31,7 @@ export default function App() {
       <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
-        <Route index element={<Navigate to="proveedores" replace />} />
+        <Route index element={<Navigate to="inicio" replace />} />
         <Route path="proveedores" element={<Proveedores />} />
         <Route path="conceptos" element={<ConceptosPago />} />
         <Route path="usuarios" element={<Usuarios />} />
@@ -42,6 +43,7 @@ export default function App() {
       <Route path="/cheques/detalle/:id" element={<ChequeDetalle />} />
       <Route path="/cheques/emitidos" element={<ChequesGenerados />} />
       <Route path="/cheques/asientos" element={<Asientos />} />
+        <Route path="/inicio" element={<Inicio />} />
 
 \      </Route>
     </Routes>    

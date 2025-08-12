@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Domain.Data;
 using Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Data.SqlClient;
 
 namespace ChequeApp.Api.Controllers
 {
@@ -51,8 +52,15 @@ namespace ChequeApp.Api.Controllers
             if (prov == null) return NotFound();
 
             _context.Proveedores.Remove(prov);
-            await _context.SaveChangesAsync();
-            return NoContent();
+            try
+            {
+                await _context.SaveChangesAsync();
+                return NoContent();
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is SqlException)
+            {
+                return Conflict("No se puede eliminar el proveedor porque tiene movimientos/solicitudes relacionadas. Puedes inactivarlo en lugar de eliminarlo.");
+            }
         }
     }
 }

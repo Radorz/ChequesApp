@@ -12,18 +12,23 @@ import { FiPrinter } from 'react-icons/fi';
 export default function Solicitudes() {
   const [lista, setLista] = useState<SolicitudCheque[]>([]);
   const [proveedores, setProveedores] = useState<Proveedor[]>([]);
+  const [conceptos, setConceptos] = useState<{identificador:number; descripcion:string; estado:boolean}[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [current, setCurrent] = useState<SolicitudCheque>();
   const [searchTerm, setSearchTerm] = useState('');
 
   const fetchAll = async () => {
     try {
-      const [{ data: s }, { data: p }] = await Promise.all([
+      const [{ data: s }, { data: p }, { data: c }] = await Promise.all([
         api.get<SolicitudCheque[]>('/solicitudes'),
-        api.get<Proveedor[]>('/proveedores')
+        api.get<Proveedor[]>('/proveedores'),
+        api.get('/ConceptosPago'),
+
       ]);
       setLista(s.filter(p=> p.estado != 'Generado'));
       setProveedores(p.filter(prov => prov.estado));
+      setConceptos(c.filter((x:any) => x.estado));
+
     } catch {
       toast.error('Error cargando datos');
     }
@@ -164,6 +169,7 @@ export default function Solicitudes() {
           show={showModal}
           item={current}
           proveedores={proveedores}
+          conceptos={conceptos}          // <-- pasar conceptos
           onSave={handleSave}
           onClose={() => setShowModal(false)}
         />

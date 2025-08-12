@@ -296,6 +296,142 @@
         }
       }
     },
+    "/api/Dashboard/overview": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardOverviewDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardOverviewDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardOverviewDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/cheques-trend": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "name": "months",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 6
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChequesTrendPoint"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChequesTrendPoint"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChequesTrendPoint"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/top-proveedores": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "name": "months",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 6
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TopProveedorDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TopProveedorDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TopProveedorDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Proveedores": {
       "get": {
         "tags": [
@@ -995,6 +1131,10 @@
           "cuentaContableBanco": {
             "type": "string",
             "nullable": true
+          },
+          "conceptoPago": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1175,6 +1315,28 @@
         },
         "additionalProperties": false
       },
+      "ChequesTrendPoint": {
+        "type": "object",
+        "properties": {
+          "anio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "ConceptoPago": {
         "type": "object",
         "properties": {
@@ -1211,6 +1373,44 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardOverviewDto": {
+        "type": "object",
+        "properties": {
+          "proveedoresActivos": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "proveedoresInactivos": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "balanceTotalProveedores": {
+            "type": "number",
+            "format": "double"
+          },
+          "solicitudesPendientes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "montoPendiente": {
+            "type": "number",
+            "format": "double"
+          },
+          "chequesGeneradosMes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "montoChequesMes": {
+            "type": "number",
+            "format": "double"
+          },
+          "conceptos": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1288,6 +1488,7 @@
       },
       "SolicitudCheque": {
         "required": [
+          "conceptoPagoId",
           "cuentaContableBanco",
           "cuentaContableProveedor",
           "estado",
@@ -1307,6 +1508,13 @@
           },
           "proveedor": {
             "$ref": "#/components/schemas/Proveedor"
+          },
+          "conceptoPagoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "conceptoPago": {
+            "$ref": "#/components/schemas/ConceptoPago"
           },
           "monto": {
             "type": "number",
@@ -1341,6 +1549,28 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TopProveedorDto": {
+        "type": "object",
+        "properties": {
+          "proveedorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "montoTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "cheques": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

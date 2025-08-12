@@ -49,9 +49,14 @@ export default function Proveedores() {
 
   const remove = async (id: number) => {
     if (confirm('¿Eliminar proveedor?')) {
-      await api.delete(`/proveedores/${id}`);
-    toast.success('Proveedor eliminado satisfactoriamente');
-      fetch();
+      try {
+    await api.delete(`/proveedores/${id}`);
+    toast.success('Proveedor eliminado');
+    fetch();
+  } catch (e:any) {
+    // El interceptor ya convierte la respuesta en e.message
+    toast.error(e.message || 'No se pudo eliminar el proveedor');
+  }
     }
   };
 
