@@ -1,2 +1,11 @@
 @import "tailwindcss";
 
+@media print {
+  body { background: #fff !important; }
+  /* Oculta navegación/sidebars si existen */
+  .print\:hidden { display: none !important; }
+  /* Quita sombras para impresión */
+  .shadow, .shadow-lg, .shadow-xl { box-shadow: none !important; }
+  /* Centra la tarjeta en la hoja */
+  @page { size: landscape; margin: 10mm; }
+}

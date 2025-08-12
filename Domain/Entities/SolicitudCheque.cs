@@ -33,5 +33,9 @@ namespace Domain.Entities
 
         [Required]
         public string CuentaContableBanco { get; set; }
+        public string? NumeroCheque { get; set; }
+
+        public int? EntradaContableDebId { get; set; } // DB a cuenta 82
+        public int? EntradaContableCreId { get; set; } // CR a cuenta 83
     }
 }

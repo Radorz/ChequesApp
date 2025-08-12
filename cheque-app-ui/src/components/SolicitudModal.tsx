@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { FormEvent } from 'react';
 import { toast } from 'react-toastify';
+import type { SolicitudCheque } from '../models/SolicitudCheque';
 
 interface Props {
   show: boolean;
@@ -10,46 +11,37 @@ interface Props {
   onClose: () => void;
 }
 
-export interface SolicitudCheque {
-  numeroSolicitud?: number;
-  proveedorId: number;
-  proveedor?: Proveedor;         // <— añadimos la navegación
-  monto: number;
-  fechaRegistro: string;
-  estado: 'Pendiente' | 'Anulada' | 'Cheque Generado';
-  cuentaContableProveedor: string;
-  cuentaContableBanco: string;
-}
-
-
-interface Proveedor {
-  identificador: number;
-  nombre: string;
-  tipoPersona: 'Física' | 'Jurídica';
-  cedulaRnc: string;
-  balance: number;
-  cuentaContable: string;
-  estado: boolean;
-}
 
 export default function SolicitudModal({
   show, item, proveedores, onSave, onClose
 }: Props) {
-  const [form, setForm] = useState<Partial<SolicitudCheque>>({
-    proveedorId: proveedores[0]?.identificador || 0,
-    monto: 0,
-    fechaRegistro: new Date().toISOString().slice(0, 10),
-    estado: 'Pendiente',
-    cuentaContableProveedor: '',
-    cuentaContableBanco: '',
-  });
 
+const toDateInput = (v?: string | Date) => {
+  if (!v) return '';
+  if (typeof v === 'string') return v.split('T')[0]; // "2025-01-20T..." -> "2025-01-20"
+  // Date -> YYYY-MM-DD en local, sin desfase de zona
+  const d = new Date(v.getTime() - v.getTimezoneOffset() * 60000);
+  return d.toISOString().slice(0, 10);
+};
+
+const [form, setForm] = useState<Partial<SolicitudCheque>>({
+  proveedorId: proveedores[0]?.identificador || 0,
+  monto: 0,
+  fechaRegistro: toDateInput(new Date()), // <-- hoy en YYYY-MM-DD
+  estado: 'Pendiente',
+  cuentaContableProveedor: '',
+  cuentaContableBanco: '',
+});
 
   // Si estamos editando
-  useEffect(() => {
-    if (item) setForm(item);
-  }, [item]);
-
+useEffect(() => {
+  if (item) {
+    setForm({
+      ...item,
+      fechaRegistro: toDateInput(item.fechaRegistro), // <-- clave
+    });
+  }
+}, [item]);
 
   useEffect(() => {
  const prov = proveedores.find(
@@ -152,7 +144,6 @@ export default function SolicitudModal({
           >
             <option value="Pendiente">Pendiente</option>
             <option value="Anulada">Anulada</option>
-            <option value="Cheque Generado">Cheque Generado</option>
           </select>
         </div>
 

@@ -6,4 +6,18 @@ api.interceptors.request.use(config => {
   if (token && config.headers) config.headers.Authorization = `${token}`;
   return config;
 });
+
+api.interceptors.response.use(
+  r => r,
+  err => {
+    // Lanza el mensaje del server si existe
+    const msg =
+      err?.response?.data?.message ||
+      err?.response?.data ||
+      err?.message ||
+      'Error inesperado';
+    return Promise.reject(new Error(typeof msg === 'string' ? msg : JSON.stringify(msg)));
+  }
+);
+
 export default api;

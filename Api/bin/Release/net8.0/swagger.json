@@ -1,0 +1,1090 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Asientos/resumen": {
+      "get": {
+        "tags": [
+          "Asientos"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "desde",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "hasta",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "debId",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "creId",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AsientoResumenDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Asientos/detalle": {
+      "get": {
+        "tags": [
+          "Asientos"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "anio",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "mes",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "debId",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "creId",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AsientoDetalleDto"
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ConceptosPago": {
+      "get": {
+        "tags": [
+          "ConceptosPago"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ConceptosPago"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ConceptoPago"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ConceptosPago/{id}": {
+      "get": {
+        "tags": [
+          "ConceptosPago"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ConceptosPago"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ConceptoPago"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ConceptosPago"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Proveedores": {
+      "get": {
+        "tags": [
+          "Proveedores"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Proveedores"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Proveedor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Proveedores/{id}": {
+      "get": {
+        "tags": [
+          "Proveedores"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Proveedores"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Proveedor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Proveedores"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Solicitudes": {
+      "get": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SolicitudCheque"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SolicitudCheque"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SolicitudCheque"
+            }
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/{id}": {
+      "get": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SolicitudCheque"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SolicitudCheque"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/pendientes": {
+      "get": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SolicitudCheque"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/{id}/generar-cheque": {
+      "post": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/GenerarChequeDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/generar-cheques": {
+      "post": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BulkGenerarChequesDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/anular": {
+      "post": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/IdsDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/generadas-no-contabilizadas": {
+      "get": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "year",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "month",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SolicitudCheque"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/contabilizar-lote": {
+      "post": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ContabilizarDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/generados/buscar": {
+      "get": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ProveedorId",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "Desde",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "Hasta",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "NumeroCheque",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "NumeroSolicitud",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ChequeResultDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Solicitudes/{id}/detalle-cheque": {
+      "get": {
+        "tags": [
+          "Solicitudes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ChequeDetailDto"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AsientoDetalleChequeDto": {
+      "type": "object",
+      "properties": {
+        "numeroSolicitud": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numeroCheque": {
+          "type": "string"
+        },
+        "proveedorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proveedorNombre": {
+          "type": "string"
+        },
+        "proveedorRnc": {
+          "type": "string"
+        },
+        "monto": {
+          "format": "double",
+          "type": "number"
+        },
+        "fechaRegistro": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "cuentaContableProveedor": {
+          "type": "string"
+        },
+        "cuentaContableBanco": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AsientoDetalleDto": {
+      "type": "object",
+      "properties": {
+        "anio": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "debId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "creId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "montoTotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "cantidadCheques": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proveedoresUnicos": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cheques": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AsientoDetalleChequeDto"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "AsientoResumenDto": {
+      "type": "object",
+      "properties": {
+        "anio": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "debId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "creId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "montoTotal": {
+          "format": "double",
+          "type": "number"
+        },
+        "cantidadCheques": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proveedoresUnicos": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BulkGenerarChequeItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numeroCheque": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BulkGenerarChequesDto": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkGenerarChequeItem"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ChequeDetailDto": {
+      "type": "object",
+      "properties": {
+        "numeroSolicitud": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numeroCheque": {
+          "type": "string"
+        },
+        "proveedorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proveedorNombre": {
+          "type": "string"
+        },
+        "proveedorRnc": {
+          "type": "string"
+        },
+        "cuentaContableProveedor": {
+          "type": "string"
+        },
+        "cuentaContableBanco": {
+          "type": "string"
+        },
+        "monto": {
+          "format": "double",
+          "type": "number"
+        },
+        "fechaRegistro": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ChequeResultDto": {
+      "type": "object",
+      "properties": {
+        "numeroSolicitud": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numeroCheque": {
+          "type": "string"
+        },
+        "proveedorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proveedorNombre": {
+          "type": "string"
+        },
+        "monto": {
+          "format": "double",
+          "type": "number"
+        },
+        "fechaRegistro": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ConceptoPago": {
+      "type": "object",
+      "properties": {
+        "identificador": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "descripcion": {
+          "type": "string"
+        },
+        "estado": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContabilizarDto": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "descripcion": {
+          "type": "string"
+        },
+        "fechaAsiento": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "GenerarChequeDto": {
+      "type": "object",
+      "properties": {
+        "numeroCheque": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "IdsDto": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "LoginRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Proveedor": {
+      "type": "object",
+      "properties": {
+        "identificador": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "tipoPersona": {
+          "type": "string"
+        },
+        "cedulaRnc": {
+          "type": "string"
+        },
+        "balance": {
+          "format": "double",
+          "type": "number"
+        },
+        "cuentaContable": {
+          "type": "string"
+        },
+        "estado": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SolicitudCheque": {
+      "required": [
+        "cuentaContableBanco",
+        "cuentaContableProveedor",
+        "estado",
+        "fechaRegistro",
+        "monto",
+        "proveedorId"
+      ],
+      "type": "object",
+      "properties": {
+        "numeroSolicitud": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proveedorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proveedor": {
+          "$ref": "#/definitions/Proveedor"
+        },
+        "monto": {
+          "format": "double",
+          "type": "number"
+        },
+        "fechaRegistro": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "estado": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "cuentaContableProveedor": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "cuentaContableBanco": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "numeroCheque": {
+          "type": "string"
+        },
+        "entradaContableDebId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "entradaContableCreId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

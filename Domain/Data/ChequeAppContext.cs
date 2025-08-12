@@ -48,6 +48,13 @@ namespace Domain.Data
                       .HasForeignKey(e => e.ProveedorId)
                       .OnDelete(DeleteBehavior.Restrict);
             });
+
+            modelBuilder.Entity<SolicitudCheque>(e =>
+            {
+                e.ToTable("SolicitudCheque", t => t.HasTrigger("TRG_Audit_SolicitudCheque"));
+                e.HasKey(x => x.NumeroSolicitud);
+                e.Property(x => x.NumeroSolicitud).ValueGeneratedOnAdd();
+            });
         }
     }
 }

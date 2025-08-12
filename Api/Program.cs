@@ -19,6 +19,17 @@ builder.Services.AddCors(options =>
 builder.Services.AddDbContext<ChequeAppContext>(
     opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddHttpClient("contab",
+    (sp, http) =>
+    {
+        var cfg = sp.GetRequiredService<IConfiguration>().GetSection("ContabApi");
+        http.BaseAddress = new Uri(cfg["BaseUrl"]!);
+        // La API usa API Key — la ponemos en cada request:
+        http.DefaultRequestHeaders.Add("x-api-key", cfg["ApiKey"]); // si la API usa otro header cámbialo aquí
+        http.DefaultRequestHeaders.Accept.ParseAdd("application/json");
+    });
+builder.Services.AddScoped<ContabApiService>();
+
 // Add Controllers
 builder.Services.AddControllers();
 

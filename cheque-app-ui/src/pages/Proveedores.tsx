@@ -3,16 +3,8 @@ import api from '../api/axiosConfig';
 import { FiPlus, FiEdit, FiTrash2,FiSlash, FiCheck} from 'react-icons/fi';
 import ProveedorModal from '../components/ProveedorModal';
 import { toast } from 'react-toastify';
-
-interface Proveedor {
-  identificador: number;
-  nombre: string;
-  tipoPersona: 'Física' | 'Jurídica';
-  cedulaRnc: string;
-  balance: number;
-  cuentaContable: string;
-  estado: boolean;
-}
+import { money } from '../utils/money';
+import type { Proveedor } from '../models/Proveedor';
 
 export default function Proveedores() {
   const [proveedores, setProveedores] = useState<Proveedor[]>([]);
@@ -95,18 +87,18 @@ export default function Proveedores() {
         </thead>
         <tbody>
           {filteredProveedores.map(p => (
-            <tr key={p.identificador} className="border-t text-center">
-              <td className="p-2">{p.identificador}</td>
-              <td className="p-2">{p.nombre}</td>
-                <td className="p-2">
+            <tr key={p.identificador} className="border-t ">
+              <td className="p-2  text-center">{p.identificador}</td>
+              <td className="p-2 text-center">{p.nombre}</td>
+                <td className="p-2 text-center">
                 <span className="inline-block px-2 py-1 text-sm font-medium text-indigo-800 bg-indigo-100 rounded-full">
                   {p.tipoPersona}
                 </span>
               </td>              
-              <td className="p-2">{p.cedulaRnc}</td>
-              <td className="p-2">{p.balance}</td>
-              <td className="p-2">{p.cuentaContable}</td>
-                <td className="p-2">
+              <td className="p-2 text-center">{p.cedulaRnc}</td>
+              <td className="p-2 text-center"> {money(p.balance)}</td>
+              <td className="p-2 text-center">{p.cuentaContable}</td>
+                <td className="p-2 text-center">
                 <span className={`inline-block px-2 py-1 text-sm font-medium rounded-full ${p.estado ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                   {p.estado ? 'Activo' : 'Inactivo'}
                 </span>

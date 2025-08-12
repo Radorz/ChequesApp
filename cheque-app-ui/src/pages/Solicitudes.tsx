@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from '../api/axiosConfig';
-import SolicitudModal from '../components/SolicitudModal';
 import { toast } from 'react-toastify';
 import { FiEdit, FiTrash2, FiCheck, FiSlash, FiPlus } from 'react-icons/fi';
-
-export interface SolicitudCheque {
-  numeroSolicitud?: number;
-  proveedorId: number;
-  proveedor?: Proveedor;         // <— añadimos la navegación
-  monto: number;
-  fechaRegistro: string;
-  estado: 'Pendiente' | 'Anulada' | 'Cheque Generado';
-  cuentaContableProveedor: string;
-  cuentaContableBanco: string;
-}
-interface Proveedor {
-  identificador: number;
-  nombre: string;
-  tipoPersona: 'Física' | 'Jurídica';
-  cedulaRnc: string;
-  balance: number;
-  cuentaContable: string;
-  estado: boolean;
-}
+import { money } from '../utils/money';
+import type { Proveedor } from '../models/Proveedor';
+import type { SolicitudCheque } from '../models/SolicitudCheque';
+import SolicitudModal from '../components/SolicitudModal';
+import { Link } from 'react-router-dom';
+import { FiPrinter } from 'react-icons/fi';
 
 export default function Solicitudes() {
   const [lista, setLista] = useState<SolicitudCheque[]>([]);
@@ -37,7 +22,7 @@ export default function Solicitudes() {
         api.get<SolicitudCheque[]>('/solicitudes'),
         api.get<Proveedor[]>('/proveedores')
       ]);
-      setLista(s);
+      setLista(s.filter(p=> p.estado != 'Generado'));
       setProveedores(p.filter(prov => prov.estado));
     } catch {
       toast.error('Error cargando datos');
@@ -52,6 +37,9 @@ export default function Solicitudes() {
     x.proveedor?.nombre?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  
+
+
   const handleSave = async (item: SolicitudCheque) => {
     try {
       if (item.numeroSolicitud) {
@@ -63,8 +51,8 @@ export default function Solicitudes() {
       }
       setShowModal(false);
       fetchAll();
-    } catch {
-      toast.error('Error al guardar');
+    } catch (e:any) {
+  toast.error(e.message);
     }
   };
 
@@ -74,8 +62,8 @@ export default function Solicitudes() {
       await api.delete(`/solicitudes/${id}`);
       toast.success('Solicitud eliminada');
       fetchAll();
-    } catch {
-      toast.error('Error al eliminar');
+    } catch (e:any) {
+  toast.error(e.message);
     }
   };
 
@@ -87,8 +75,8 @@ export default function Solicitudes() {
       });
       toast.success('Estado cambiado');
       fetchAll();
-    } catch {
-      toast.error('Error al cambiar estado');
+    } catch (e:any) {
+  toast.error(e.message);
     }
   };
 
@@ -124,9 +112,9 @@ export default function Solicitudes() {
         <tbody>
           {filtered.map(x => (
             <tr key={x.numeroSolicitud} className="border-b">
-              <td className="px-4 py-2">{x.numeroSolicitud}</td>
-              <td className="px-4 py-2">  {x.proveedor?.nombre /* <-- usa la relación */}</td>
-              <td className="px-4 py-2 text-center">{x.monto.toFixed(2)}</td>
+              <td className="px-4 py-2 text-center">{x.numeroSolicitud}</td>
+              <td className="px-4 py-2 text-center">  {x.proveedor?.nombre /* <-- usa la relación */}</td>
+              <td className="px-4 py-2 text-center">{money(x.monto.toFixed(2))}</td>
               <td className="px-4 py-2 text-center">{new Date(x.fechaRegistro).toLocaleDateString()}</td>
               <td className="px-4 py-2 text-center">
                 <span className={`inline-block px-2 py-1 text-sm rounded-full ${
@@ -139,7 +127,7 @@ export default function Solicitudes() {
                   {x.estado}
                 </span>
               </td>
-              <td className="px-4 py-2 flex justify-center space-x-2">
+              <td className="px-4 py-2 flex  space-x-2">
                 <button
                   onClick={() => { setCurrent(x); setShowModal(true); }}
                   className="p-1 rounded hover:bg-gray-200 active:bg-gray-300 transition cursor-pointer"
@@ -157,6 +145,14 @@ export default function Solicitudes() {
                   className="p-1 rounded hover:bg-gray-200 active:bg-gray-300 transition cursor-pointer"
                   title="Eliminar"
                 ><FiTrash2 size={16}/></button>
+                <Link
+    to={`/cheques/detalle/${x.numeroSolicitud}`}
+    className={`p-1 rounded hover:bg-gray-200 active:bg-gray-300 transition
+      ${x.estado === 'Generado' ? '' : 'opacity-40 pointer-events-none'}`}
+    title="Detalle / Imprimir cheque"
+  >
+    <FiPrinter size={16} />
+  </Link>
                 </td>
               </tr>
           ))}
