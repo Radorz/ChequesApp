@@ -12,7 +12,7 @@ export default function Login() {
     try {
       const res = await api.post('/auth/login', { username, password });
       localStorage.setItem('token', res.data.token);
-      navigate('/conceptos');
+      navigate('/inicio');
     } catch {
       alert('Credenciales inválidas');
     }
