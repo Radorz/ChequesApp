@@ -5,7 +5,6 @@ import { Line, Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend } from 'chart.js';
 import { Link } from 'react-router-dom';
 import { FiUsers, FiBookOpen, FiList, FiCheckSquare, FiEye, FiBook } from 'react-icons/fi';
-import Logo from '../components/Logo';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend);
 
