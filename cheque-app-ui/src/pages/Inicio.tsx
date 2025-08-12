@@ -65,10 +65,6 @@ export default function Inicio() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <Logo />
-        <div className="text-sm text-slate-500">Bienvenido · Panel de control</div>
-      </div>
 
       {/* KPIs */}
       {ov && (
